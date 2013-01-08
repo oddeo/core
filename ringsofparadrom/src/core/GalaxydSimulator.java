@@ -56,41 +56,5 @@ public class GalaxydSimulator {
     //ship1.move("n2");
     
     
-// TODO
-// * Randomly spawn a ship in a node within a galaxy
-    // -- Acceptance Criteria
-    // 1. A ship must be randomly dropped into a node
-    // 2. No two ships must be dropped into the same node
-    // 3. Ship will be dropped into node with no other entities (asteroid, planet.. not just other ships)
-    
-// * As a ship, I will be notified of the activity occuring within my current node
-    // -- Acceptance Criteria
-    // 1.  A node will notify me of ships arriving
-    // 2.  A node will notify me of ships departing
-
-// * As a ship, I want to be able to attack another ship within the same node
-    // -- Acceptance Criteria
-    // 1. A ship will identify another ship to attack
-    // 2. Attacks are turn based
-    // 3. A ship will specify the number of fighters to use in the attack
-    
-// * As a ship, I want to move from node to node
-    // -- Acceptance Criteria
-    // 1. A ship will choose from the list of connections available in the node
-    // 2. A node must reveal a list of its entities and options
-    // 3. A node must prompt the ship for a command
-    
-// * As a ship, I will gain 1 point of energy every hour whether I am playing online or not
-    // -- Acceptance Criteria
-    // 1.  A ship has a maximum limit of energy 
-    // 2.  A ship uses 1 point of energy for each move
-    // 3.  When a ship runs out of energy they cannot move until another point is gained
-    
-// * As a ship, I will play a game until the season ends
-    // -- Acceptance Criteria
-    // 1.  A universe will generate a map when a season begins that contains multiple galaxies
-    // 2.  Ships can enter a universe once a season begins
-    // 3.  A universe will tally points for each ship and report status at the end of a season
-    
   }
 }
