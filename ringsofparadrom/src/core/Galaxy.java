@@ -1,7 +1,5 @@
 package core;
 
-
-
 import java.util.*;
 
 public class Galaxy {

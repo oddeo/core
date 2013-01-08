@@ -53,7 +53,7 @@ public class GalaxydSimulator {
     g1.addNode(n2);
     
     // ship 1 moves from n1 to n2
-    ship1.move("n2");
+    //ship1.move("n2");
     
     
 // TODO

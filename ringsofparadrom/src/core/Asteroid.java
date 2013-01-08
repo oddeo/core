@@ -1,7 +1,5 @@
 package core;
 
-
-
 public class Asteroid implements Entity {
   private String name;
   
