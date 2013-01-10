@@ -55,6 +55,10 @@ public class GalaxydSimulator {
           System.out.println(key + " contains " + value.getName() + " - # of Connections: " + value.getConnections().size()
                   + " - # of Entities: " + value.getEntities().size());
       }
+     
+    // Added get point value to the Galaxy class.  
+    // The intent of this is to be able to look up a node by a point name
+    // Once the node is looked up, need to see if it contains a certain type of entity (SHIP - example)
     
   }
 }

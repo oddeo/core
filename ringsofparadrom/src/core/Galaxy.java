@@ -22,6 +22,10 @@ public class Galaxy {
         return points;
     }
     
+    public Object getPointValue(String key) {
+        return this.points.get(key);
+    }
+    
     
   
 }
