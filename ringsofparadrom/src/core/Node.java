@@ -2,27 +2,50 @@ package core;
 
 import java.util.*;
 
-class Node {
-  public String name;
-  public List entities;
-  public List connections;
-  
-  public Node(String name) {
-    this.entities = new LinkedList();
-    this.connections = new LinkedList();
-    this.name = name;
-  }
-  
-  public void addEntity(Entity entity) {
-    this.entities.add(entity);
-  } 
-  
-  public void removeEntityById(Entity entity) {
-    this.entities.remove(entity);
-  }
-  
-  public void addConnection(String nodeName) {
-    this.connections.add(nodeName);
-  }
-  
+/**
+ *
+ * @author danieljones
+ */
+public class Node {
+    private String name;
+    private Map connections;
+    private Map entities;
+    
+    public Node(String name) {
+        this.name = name;
+        this.connections = new HashMap();
+        this.entities = new HashMap();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    public void addConnection(String key, Object value) {
+        this.connections.put(key, value);
+    }
+
+    public Map getConnections() {
+        return connections;
+    }
+    
+    public void addEntity(String key, Object value) {
+        this.entities.put(key, value);
+    }
+    
+    public void removeEntity(String key) {
+        this.entities.remove(key);
+    }
+
+    public Map getEntities() {
+        return entities;
+    }
+    
+    
+    
+    
 }

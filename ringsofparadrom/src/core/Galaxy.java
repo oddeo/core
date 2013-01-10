@@ -1,16 +1,27 @@
 package core;
 
+
 import java.util.*;
 
+/**
+ *
+ * @author danieljones
+ */
 public class Galaxy {
-  public List nodes;
+    private Map points;
+    
+    public Galaxy() {
+        this.points = new HashMap();
+    }
+    
+    public void addPoint(String key, Object value) {
+        this.points.put(key, value);
+    }
+
+    public Map getPoints() {
+        return points;
+    }
+    
+    
   
-  public Galaxy() {
-    this.nodes = new LinkedList();
-  }
-  
-  public void addNode(Node node) {
-    this.nodes.add(node);
-  }
-   
 }
