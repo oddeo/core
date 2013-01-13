@@ -52,6 +52,7 @@ public class Game {
           System.out.println(entity);
       }
     
+        // modify galaxy toString override to return the entire galaxy in JSON
         // place asteroids in random nodes
         // place planets in random nodes
         // place ship in random node
