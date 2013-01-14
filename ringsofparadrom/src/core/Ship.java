@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package core;
 
 /**
@@ -10,23 +6,33 @@ package core;
  */
 public class Ship {
     private int id;
-    private Node cur;
+    private Node currentNode;
     
-    public Ship(int id, Node cur) {
+    public Ship(int id, Node startNode) {
         this.id = id;
-        this.cur = cur;
+        this.currentNode = startNode;
+        this.addShipToStartingNode();
+    }
+    
+    private void addShipToStartingNode() {
+        this.currentNode.getCollection().add(this);
     }
     
     public void jump(Node next) {
-        if(cur.getConnections().contains(next)) {
-          System.out.println("Moved from " + cur.getName() + " to: " + next.getName());
-          cur.getCollection().remove(this);
+        if(currentNode.getConnections().contains(next)) {
+          System.out.println("Moved from " + currentNode.toString() + " to: " + next.toString());
+          currentNode.getCollection().remove(this);
           next.getCollection().add(this);
-          this.cur = next;            
+          this.currentNode = next;            
         }  else {
             System.out.println("Illegal Move");
         }
 
     }
+    
+    @Override
+    public String toString() {
+        return "Ship: " + this.id;
+    }   
     
 }

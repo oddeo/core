@@ -12,11 +12,33 @@ public class Galaxy {
     public Galaxy() {
         this.points = new HashMap();
     }
-    
-    public void initialize(List nodes, List ships) {
-        // generate random connections for nodes
-        // place asteroids in random nodes
-        // place planets in random nodes
-        // place ship in random node
+
+    public void putPoint(Object point) {
+        this.points.put(point.toString(), point);
     }
+    
+    public Object getPoint(Object key) {
+        return points.get(key);
+        
+    }
+    
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("{");
+        Iterator it = points.entrySet().iterator();
+        while(it.hasNext()) {
+            Map.Entry point = (Map.Entry)it.next();
+            sb.append(point.getKey());
+            sb.append(":");
+            sb.append(point.getValue());
+            sb.append(",");
+        }
+        sb.deleteCharAt(sb.length() - 1);
+        sb.append("}");
+        
+        return sb.toString();
+    }
+    
+    
 }
