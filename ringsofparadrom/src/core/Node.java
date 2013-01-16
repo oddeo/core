@@ -20,12 +20,7 @@ public class Node {
     public List getCollection() {
         return collection;
     }
-
-    @Override
-    public String toString() {
-        return this.name;
-    }
-
+    
     public List getConnections() {
         return connections;
     }
@@ -33,6 +28,12 @@ public class Node {
     public void addConnection(Node node) {
         this.connections.add(node);
     }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
+
     
     
     

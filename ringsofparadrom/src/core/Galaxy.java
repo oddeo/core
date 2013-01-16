@@ -1,6 +1,6 @@
 package core;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 import nu.xom.*;
 
@@ -9,23 +9,32 @@ import nu.xom.*;
  * @author danieljones
  */
 public class Galaxy {
-    private Map points;
+    private LinkedHashMap<String,Object> points;
     
     public Galaxy() {
-        this.points = new HashMap();
+        this.points = new LinkedHashMap();
     }
 
     public void putPoint(Object point) {
         this.points.put(point.toString(), point);
     }
     
-    public Object getPoint(Object key) {
+    public Object getPoint(String key) {
         return points.get(key);
         
     }
     
-    @Override
-    public String toString() {
+    public Object getRandomPoint() {
+        
+        Random randInt = new Random();
+        int randPos = randInt.nextInt(this.points.size());
+        String key = "n" + randPos;
+        
+        return points.get(key);
+        
+    }
+        
+    public void toXML() throws IOException {
         Element root = new Element("Galaxy");  
         
         StringBuilder sb = new StringBuilder();
@@ -55,7 +64,6 @@ public class Galaxy {
         }                
 
         Document doc = new Document(root);
-        String result = "";
         
         try {
           Serializer serializer = new Serializer(System.out, "ISO-8859-1");
@@ -66,8 +74,6 @@ public class Galaxy {
         catch (IOException ex) {
            System.err.println(ex); 
         } 
-        
-        return result;
     }
     
     

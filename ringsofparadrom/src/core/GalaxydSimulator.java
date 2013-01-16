@@ -6,7 +6,7 @@ package core;
  */
 public class GalaxydSimulator {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IllegalMoveException {
       Game g = new Game();    
   }
   
