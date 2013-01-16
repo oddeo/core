@@ -64,7 +64,7 @@ public class GalaxyTest {
         
     }
     /**
-     * Test outputting galaxy map as XML, of class Galaxy.
+     * Test node put adds node name toXml galaxy map, of class Galaxy.
      */
     @Test
     public void testToXML() throws IOException {
@@ -72,6 +72,7 @@ public class GalaxyTest {
 
         instance.putPoint(new Node("n0"));
         instance.toXML();
-        assertTrue(outContent.toString().contains("Key"));
+        String expectedValue = "<Point Key=\"n0\"";
+        assertTrue(outContent.toString().contains(expectedValue));
     }
 }
