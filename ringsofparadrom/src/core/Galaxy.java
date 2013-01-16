@@ -4,15 +4,11 @@ import java.io.*;
 import java.util.*;
 import nu.xom.*;
 
-/**
- *
- * @author danieljones
- */
 public class Galaxy {
     private LinkedHashMap<String,Object> points;
     
     public Galaxy() {
-        this.points = new LinkedHashMap();
+        this.points = new LinkedHashMap<>();
     }
 
     public void putPoint(Object point) {
