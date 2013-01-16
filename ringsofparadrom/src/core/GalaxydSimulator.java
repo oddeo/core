@@ -7,7 +7,7 @@ package core;
 public class GalaxydSimulator {
 
   public static void main(String[] args) {
-      new Game();    
+      Game g = new Game();    
   }
   
 }

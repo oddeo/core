@@ -17,14 +17,14 @@ public class Game {
     n0.addConnection(n2);
         
     Galaxy galaxy = new Galaxy(); 
-    
     galaxy.putPoint((Object)n0);
     galaxy.putPoint((Object)n1);
-    galaxy.putPoint((Object)n2);
+    galaxy.putPoint((Object)n2);    
     
     Ship j1 = new Ship(1, n0);
     j1.jump(n1);
     j1.jump(n2);
+
     
     //Create a random key to pull nodes from the galaxy
     Random randomGen = new Random();
@@ -51,6 +51,8 @@ public class Game {
           Object entity = (Object)it.next();
           System.out.println(entity);
       }
+      
+    System.out.println(galaxy.toString());      
     
         // modify galaxy toString override to return the entire galaxy in JSON
         // place asteroids in random nodes
