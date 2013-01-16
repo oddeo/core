@@ -33,15 +33,14 @@ public class Galaxy {
         Iterator it = points.entrySet().iterator();
         while(it.hasNext()) {
             Element mapPoint = new Element("Point"); 
-            Element k = new Element("Key");
             Element v = new Element("Value");
             Map.Entry point = (Map.Entry)it.next();
             
-            Attribute value = new Attribute("value", String.valueOf(point.getValue().toString()));
+            Attribute value = new Attribute("Key", String.valueOf(point.getKey().toString()));
                        
 
-            k.appendChild(point.getKey().toString());
-            mapPoint.appendChild(k);
+            v.appendChild(point.getValue().toString());
+            mapPoint.appendChild(v);
             mapPoint.addAttribute(value);
             root.appendChild(mapPoint);
         }                
