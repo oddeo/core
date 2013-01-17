@@ -7,17 +7,17 @@ import java.util.*;
  * @author danieljones
  */
 public class Node {
-    private List collection;
-    private List connections;
+    private LinkedList<Object> collection;
+    private LinkedList<Node> connections;
     private String name;
     
     public Node(String name) {
-        this.collection = new LinkedList();
+        this.collection = new LinkedList<>();
         this.name = name;
-        this.connections = new LinkedList();
+        this.connections = new LinkedList<>();
     }
 
-    public List getCollection() {
+    public LinkedList<Object> getCollection() {
         return collection;
     }
     
