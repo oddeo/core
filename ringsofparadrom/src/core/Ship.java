@@ -66,7 +66,18 @@ public class Ship {
     }
 
     public void setCargo(int cargo) {
-      this.cargo = cargo;
+      try {       
+        int newCargo = this.cargo + cargo;
+         if(newCargo <= this.cargoMax) {
+           this.cargo = cargo;
+         } else {
+           // add cargo until full. rest of cargo is discarded
+           this.cargo = this.cargoMax - this.cargo;
+           throw(new IllegalMoveException("Cargo Full: Some or all of the cargo was discarded"));
+         }        
+      } catch (IllegalMoveException ime) {
+           System.out.println(ime.getMessage());        
+      }
     }
 
     public int getCargo() {

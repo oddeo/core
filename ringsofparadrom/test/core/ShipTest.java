@@ -94,4 +94,42 @@ public class ShipTest {
         String result = ship.toString();
         assertEquals(expResult, result);
     }
+    
+    /**
+     * Test of getCargoMax method, of class Ship.
+     */
+    @Test
+    public void testCargoSetMaxLimit() {
+        System.out.println("Ship Cargo Max Limit");
+        Ship ship = new Ship(0, new Node(""), 50, 20);
+        int expectedResult = 20;
+        int actualResult = ship.getCargoMax();
+        assertEquals(expectedResult, actualResult);
+    }    
+    
+    /**
+     * Test of cargo default, of class Ship.
+     */
+    @Test
+    public void testCargoDefaultAmount() {
+        System.out.println("Ship Cargo Default Amount");
+        Ship ship = new Ship(0, new Node(""), 50, 20);
+        int expectedResult = 0;
+        int actualResult = ship.getCargo();
+        assertEquals(expectedResult, actualResult);
+    }     
+    
+    /**
+     * Test of cargo max limit discards extra cargo, of class Ship.
+     */
+    @Test
+    public void testCargoMaxLimitEnforced() {
+        System.out.println("Ship discards additional cargo once cargo is full");
+        Ship ship = new Ship(0, new Node(""), 50, 20);
+        ship.setCargo(21);
+        int expectedResult = 20;
+        int actualResult = ship.getCargo();
+        assertEquals(expectedResult, actualResult);
+    }        
+    
 }
