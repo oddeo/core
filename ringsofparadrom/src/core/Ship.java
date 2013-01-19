@@ -9,13 +9,17 @@ public class Ship {
     private Node currentNode;
     private int fuel;
     private int fuelmax;
+    private int cargo;
+    private int cargoMax;
     
-    public Ship(int id, Node startNode, int fuel) {
+    public Ship(int id, Node startNode, int fuelMax, int cargoMax) {
         this.id = id;
         this.currentNode = startNode;
         this.addShipToStartingNode();
-        this.fuelmax = fuel;
+        this.fuelmax = fuelMax;
         this.refuel();
+        this.cargoMax = cargoMax;
+        this.cargo = 0;
     }
     
     private void addShipToStartingNode() {
@@ -52,11 +56,27 @@ public class Ship {
     private void setFuel(int fuel) {
         this.fuel = fuel;
     }
-    
+
+    public int getFuelmax() {
+      return fuelmax;
+    }
+            
     public final void refuel() {
         this.setFuel(fuelmax);
     }
-    
+
+    public void setCargo(int cargo) {
+      this.cargo = cargo;
+    }
+
+    public int getCargo() {
+      return cargo;
+    }
+
+    public int getCargoMax() {
+      return cargoMax;
+    }        
+           
     @Override
     public String toString() {
         return "Ship: " + this.id;

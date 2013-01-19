@@ -4,8 +4,6 @@
  */
 package core;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.*;
 import static org.junit.Assert.*;
 
@@ -24,7 +22,7 @@ public class ShipTest {
         Node next = new Node("nextNode");
         Node currentNode = new Node("currentNode");
         currentNode.addConnection(next);
-        Ship ship = new Ship(0, currentNode, 50);
+        Ship ship = new Ship(0, currentNode, 50, 20);
         ship.jump(next);
         assertTrue(next.getCollection().contains(ship));
     }
@@ -38,7 +36,7 @@ public class ShipTest {
         Node next = new Node("nextNode");
         Node currentNode = new Node("currentNode");
         currentNode.addConnection(next);
-        Ship ship = new Ship(0, currentNode, 50);
+        Ship ship = new Ship(0, currentNode, 50, 20);
         
         ship.jump(next);
         int actualResult = ship.getFuel();
@@ -56,7 +54,7 @@ public class ShipTest {
         Node next = new Node("nextNode");
         Node currentNode = new Node("currentNode");
         currentNode.addConnection(next);
-        Ship ship = new Ship(0, currentNode, 0);
+        Ship ship = new Ship(0, currentNode, 0, 20);
         
         ship.jump(next);
         boolean actualresult = next.getCollection().contains(ship);
@@ -74,7 +72,7 @@ public class ShipTest {
         Node next = new Node("nextNode");
         Node currentNode = new Node("currentNode");
         currentNode.addConnection(next);
-        Ship ship = new Ship(0, currentNode, 1);
+        Ship ship = new Ship(0, currentNode, 1, 20);
         
         ship.jump(next);
         
@@ -91,7 +89,7 @@ public class ShipTest {
     @Test
     public void testToString() {
         System.out.println("toString");
-        Ship ship = new Ship(0, new Node(""), 50);
+        Ship ship = new Ship(0, new Node(""), 50, 20);
         String expResult = "Ship: 0";
         String result = ship.toString();
         assertEquals(expResult, result);

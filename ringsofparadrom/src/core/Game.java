@@ -33,7 +33,7 @@ public class Game {
     plan1.getCollection().add(Entity.PLANET);
     plan2.getCollection().add(Entity.PLANET);
     
-    Ship j1 = new Ship(1, (Node)galaxy.getRandomPoint(), 1);
+    Ship j1 = new Ship(1, (Node)galaxy.getRandomPoint(), 1, 20);
     
     galaxy.toXML();
  
