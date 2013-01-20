@@ -26,7 +26,7 @@ public class GalaxyTest {
      */
     @Test
     public void testPutGetPoint() {
-        System.out.println("putPoint");
+        System.out.println("System can add new point to galaxy");
         Object point = new Node("point0");
         instance.putPoint(point);
         assertSame(instance.getPoint("point0"), point);
@@ -37,7 +37,7 @@ public class GalaxyTest {
      */
     @Test
     public void testGetRandomPoint() {
-        System.out.println("getRandomPoint");
+        System.out.println("System can get a random point in the galaxy");
 
         instance.putPoint(new Node("n0"));
         instance.putPoint(new Node("n1"));
@@ -68,7 +68,7 @@ public class GalaxyTest {
      */
     @Test
     public void testToXML() throws IOException {
-        System.out.println("toXML");
+        System.out.println("System can output galaxy map as XML");
 
         instance.putPoint(new Node("n0"));
         instance.toXML();

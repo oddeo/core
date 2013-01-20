@@ -18,7 +18,7 @@ public class ShipTest {
      */
     @Test
     public void testJumpOneNode() throws IllegalMoveException {
-        System.out.println("ship jumps one node");
+        System.out.println("Ship can jump from current node to connected node");
         Node next = new Node("nextNode");
         Node currentNode = new Node("currentNode");
         currentNode.addConnection(next);
@@ -32,7 +32,7 @@ public class ShipTest {
      */
     @Test
     public void testBurnFuelOnJump() throws IllegalMoveException {
-        System.out.println("ship burns fuel on jump");
+        System.out.println("Ship burns fuel on jump");
         Node next = new Node("nextNode");
         Node currentNode = new Node("currentNode");
         currentNode.addConnection(next);
@@ -50,7 +50,7 @@ public class ShipTest {
      */
     @Test
     public void testOutOfFuelOnJump() throws IllegalMoveException {
-        System.out.println("ship cannot jump when out of fuel");
+        System.out.println("Ship jump is rejected when out of fuel");
         Node next = new Node("nextNode");
         Node currentNode = new Node("currentNode");
         currentNode.addConnection(next);
@@ -68,7 +68,7 @@ public class ShipTest {
      */
     @Test
     public void testRefueltoMaxFuelLimit() throws IllegalMoveException {
-        System.out.println("ship can refuel to max fuel limit");
+        System.out.println("Ship can refuel to max fuel limit");
         Node next = new Node("nextNode");
         Node currentNode = new Node("currentNode");
         currentNode.addConnection(next);
@@ -88,7 +88,7 @@ public class ShipTest {
      */
     @Test
     public void testToString() {
-        System.out.println("toString");
+        System.out.println("Ship can output name: id to string");
         Ship ship = new Ship(0, new Node(""), 50, 20);
         String expResult = "Ship: 0";
         String result = ship.toString();
@@ -100,7 +100,7 @@ public class ShipTest {
      */
     @Test
     public void testCargoSetMaxLimit() {
-        System.out.println("Ship Cargo Max Limit");
+        System.out.println("Ship can set max cargo limit");
         Ship ship = new Ship(0, new Node(""), 50, 20);
         int expectedResult = 20;
         int actualResult = ship.getCargoMax();
@@ -112,7 +112,7 @@ public class ShipTest {
      */
     @Test
     public void testCargoDefaultAmount() {
-        System.out.println("Ship Cargo Default Amount");
+        System.out.println("Ship can retrieve default cargo amount");
         Ship ship = new Ship(0, new Node(""), 50, 20);
         int expectedResult = 0;
         int actualResult = ship.getCargo();
@@ -125,8 +125,11 @@ public class ShipTest {
     @Test
     public void testCargoMaxLimitEnforced() {
         System.out.println("Ship discards additional cargo once cargo is full");
-        Ship ship = new Ship(0, new Node(""), 50, 20);
-        ship.setCargo(21);
+        Node n1 = new Node("n1");
+        Asteroid a1 = new Asteroid(1, Ore.GOLD, 25, 21);
+        n1.getCollection().add(a1);        
+        Ship ship = new Ship(0, n1, 50, 20);
+        ship.setCargo(a1);
         int expectedResult = 20;
         int actualResult = ship.getCargo();
         assertEquals(expectedResult, actualResult);

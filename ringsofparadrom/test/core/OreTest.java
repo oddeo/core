@@ -18,7 +18,7 @@ public class OreTest {
      */
     @Test
     public void testGetUnitValue() {
-        System.out.println("get unit value from GOLD, ore enum");
+        System.out.println("System can get a unit value from Ore");
         int expectedValue = 10;
         int actualValue = Ore.GOLD.unitValue();
         assertSame(expectedValue, actualValue);

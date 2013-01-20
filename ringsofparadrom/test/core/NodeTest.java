@@ -15,7 +15,7 @@ public class NodeTest {
      */
     @Test
     public void testGetCollection() {
-        System.out.println("getCollection");
+        System.out.println("System can get a collection of entities");
         Node node = new Node("");
         assertTrue(node.getCollection() instanceof List);
     }
@@ -25,7 +25,7 @@ public class NodeTest {
      */
     @Test
     public void testToString() {
-        System.out.println("toString");
+        System.out.println("System can output node name to string");
         Node node = new Node("test");
         String expResult = "test";
         String result = node.toString();
@@ -37,7 +37,7 @@ public class NodeTest {
      */
     @Test
     public void testGetConnections() {
-        System.out.println("getConnections");
+        System.out.println("System can get a list of node connections");
         Node node = new Node("");
         assertTrue(node.getConnections() instanceof List);
     }
@@ -47,7 +47,7 @@ public class NodeTest {
      */
     @Test
     public void testAddConnection() {
-        System.out.println("addConnection");
+        System.out.println("System can add a node to connections list");
         Node home = new Node("");
         Node connection = new Node("");
         home.addConnection(connection);

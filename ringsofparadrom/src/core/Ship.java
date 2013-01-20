@@ -64,20 +64,24 @@ public class Ship {
     public final void refuel() {
         this.setFuel(fuelmax);
     }
-
-    public void setCargo(int cargo) {
-      try {       
-        int newCargo = this.cargo + cargo;
-         if(newCargo <= this.cargoMax) {
-           this.cargo = cargo;
-         } else {
-           // add cargo until full. rest of cargo is discarded
-           this.cargo = this.cargoMax - this.cargo;
-           throw(new IllegalMoveException("Cargo Full: Some or all of the cargo was discarded"));
-         }        
-      } catch (IllegalMoveException ime) {
-           System.out.println(ime.getMessage());        
-      }
+    
+    // if entity is in current node, and mine yield does not exceed max cargo
+    public void setCargo(IMineable entity) {
+        try {
+            if(inCurrentNode(entity)) {
+                if(this.cargo + entity.mineYield() <= this.cargoMax) {
+                    // fill to max and discard the rest
+                    this.cargo += entity.mine();
+                } else {
+                    this.cargo = this.cargoMax;
+                    throw (new IllegalMoveException("Warning: Cargo is full, some or all of new cargo discarded"));
+                }
+            } else {
+                throw (new IllegalMoveException("Task Rejected: Entity is not in the current node"));
+            }
+        } catch (IllegalMoveException ime) {
+            System.out.println(ime.getMessage());
+        }
     }
 
     public int getCargo() {
@@ -86,11 +90,20 @@ public class Ship {
 
     public int getCargoMax() {
       return cargoMax;
-    }        
+    }  
            
     @Override
     public String toString() {
         return "Ship: " + this.id;
-    }   
+    }  
+    
+    // helper method
+    private boolean inCurrentNode(Object entity) {
+        boolean inCurrent = false;
+        if(currentNode.getCollection().contains(entity)) {
+            inCurrent = true;
+        }
+        return inCurrent;
+    }    
     
 }

@@ -27,9 +27,9 @@ public class Game {
     Node ast3 = (Node)galaxy.getRandomPoint();
     Node plan1 = (Node)galaxy.getRandomPoint();
     Node plan2 = (Node)galaxy.getRandomPoint();
-    ast1.getCollection().add(Entity.ASTEROID);
-    ast2.getCollection().add(Entity.ASTEROID);
-    ast3.getCollection().add(Entity.ASTEROID);
+    ast1.getCollection().add(new Asteroid(1, Ore.GOLD, 5, 1));
+    ast2.getCollection().add(new Asteroid(2, Ore.COPPER, 10, 2));
+    ast3.getCollection().add(new Asteroid(3, Ore.NICKEL, 15, 3));
     plan1.getCollection().add(Entity.PLANET);
     plan2.getCollection().add(Entity.PLANET);
     
