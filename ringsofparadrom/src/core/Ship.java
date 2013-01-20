@@ -38,10 +38,10 @@ public class Ship {
                    this.currentNode = next;            
                    this.setFuel(this.fuel - 1);
                  } else {
-                     throw(new IllegalMoveException("Move denied: Out of fuel"));
+                     throw(new IllegalMoveException("Move Denied: Ship is out of fuel"));
                  }
              } else {
-                 throw(new IllegalMoveException("Move denied: Out of fuel"));
+                 throw(new IllegalMoveException("Move Denied: No connection to " + next.toString() + " from current location"));
              }            
             
         } catch (IllegalMoveException ime) {
@@ -74,10 +74,11 @@ public class Ship {
                     this.cargo += entity.mine();
                 } else {
                     this.cargo = this.cargoMax;
-                    throw (new IllegalMoveException("Warning: Cargo is full, some or all of new cargo discarded"));
+                    int cargoOverage = (this.cargo + entity.mineYield()) - this.cargoMax;
+                    throw (new IllegalMoveException("Warning: Cargo is full, " + cargoOverage + " unit(s) of new cargo discarded"));
                 }
             } else {
-                throw (new IllegalMoveException("Task Rejected: Entity is not in the current node"));
+                throw (new IllegalMoveException("Task Rejected: " + entity.toString() + " is not in the current node"));
             }
         } catch (IllegalMoveException ime) {
             System.out.println(ime.getMessage());
